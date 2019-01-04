@@ -1,0 +1,65 @@
+<%= form_with(model: chain, local: true) do |form| %>
+  <% if chain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chain.errors.count, "error") %> prohibited this chain from being saved:</h2>
+
+      <ul>
+      <% chain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Nombre %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Turno %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Valor %>
+    <%= form.number_field :value %>
+  </div>
+
+
+<!-- call the payment model?   -->
+  <div>
+  <% @empty_array = [3] %>
+
+  <% @sav = Chain.all.count %>
+    <% @sav.times do |some| %>
+      <% res = some + 1 %>
+
+      <div class="field">
+        <%= "Cuota "+res.to_s + " pagada?"%>
+<!--         <%= form.label :Pagoq%>  -->
+        <%= form.text_field :@empty_array[some] %>
+<!--         <div> <% puts "The array is: "+@empty_array.to_s   %> </div> -->
+      </div>
+    <% end %>
+  </div>
+
+<!--   <div class="field">
+    <%= form.label :Debe? %>
+    <%= form.text_field :owe %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Pagó? %>
+    <%= form.text_field :paid %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :Fecha_de_entrega %>
+    <%= form.date_select :delivery_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Agregar Ahorrador", class: "btn btn-success" %>
+  </div>
+<% end %>

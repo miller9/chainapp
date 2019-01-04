@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @chain.name %>
+</p>
+
+<p>
+  <strong>Turno:</strong>
+  <%= @chain.position %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @chain.value %>
+</p>
+
+<p>
+  <strong>Cuotas:</strong>
+  <%= @payapa = Payment.all %>
+</p>
+
+<p>
+  <strong>Debe?:</strong>
+   <%= @chain.owe %>
+</p>
+
+<p>
+  <strong>Pagó?:</strong>
+<!--   <%= @chain.paid %> -->
+  <%= @a %>
+</p>
+
+<p>
+  <strong>Fecha de entrega:</strong>
+  <%= @chain.delivery_date %>
+</p>
+
+<%= link_to 'Editar', edit_chain_path(@chain) %> |
+<%= link_to 'Volver', chains_path %> |

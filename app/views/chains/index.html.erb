@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>chainn</h1>
+
+<div class="table-responsive">
+  <table id = "chains" class="display">
+          <% @savers = Chain.all.count %>
+          <% @savers_value = @savers.to_i %>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Turno</th>
+        <th>Valor</th>
+      <% @savers.times do |saver| %>
+        <% @res = saver + 1 %>
+        <th> <%= @z = "Pago" + @res.to_s %> </th>
+      <% end %>
+        <th>Fecha de entrega</th>
+        <th>Total Ahorro</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @chains.each do |chain| %>
+      <%= chain.name.inspect%>
+      <% @chain_vall = chain.value.to_i %>
+      <% @total = @chain_vall * @savers_value %>
+        <tr>
+          <td><%= link_to(chain.name, chain) %></td> <!-- linking to 'chain Show View' -->
+          <td><%= chain.position %></td>
+          <td><%= number_to_currency(chain.value) %></td>
+        
+        <% @savers.times do |saver| %>
+          <% @custom_value = Payment.all %>
+          <% @custom_value.each do |value_project| %>
+            <%= @ex = value_project.cash_pay %>
+          <% end %>
+          <% @extra %>
+          <% @a=[333, 222, 111, "s2"] %>
+          <% tam = @a.length %>
+          <td> <%= @a[saver] %> </td>
+<!--           <td> <%= chain.paid %> </td> -->
+        <% end %>
+
+
+          
+          <td><%= chain.delivery_date %></td>
+  <!--         <td><%= link_to 'Ver', chain %></td> -->
+  <!--         <td><%= link_to 'Editar', edit_chain_path(chain) %></td> -->
+  <!--          <td><%= link_to 'Eliminar', chain, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          <td> <%= number_to_currency(@total) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'Nuevo Registro', new_chain_path %>

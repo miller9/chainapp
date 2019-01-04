@@ -1,0 +1,43 @@
+// Place all the styles related to the chains controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+td.highlight {
+        font-weight: bold;
+        color: blue;
+    }
+    
+// Adding some style to the datatable
+.dataTables_wrapper {
+  #ajax-table {
+    &.dataTable {
+      td {
+        color: grey;
+      }
+    }
+
+    thead {
+      tr {
+        background-color: dimgrey;
+        color: white;
+
+        th {
+          border-width: 0px;
+        }
+      }
+    }
+
+    tr {
+      td.character-column {
+        text-align: right;
+        vertical-align: top;
+      }
+
+      td.season-column,
+      td.episode-column {
+        text-align: center;
+        vertical-align: top;
+      }
+    }
+  }
+}
